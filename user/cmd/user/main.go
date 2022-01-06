@@ -2,9 +2,10 @@ package main
 
 import (
 	"flag"
+	"github.com/gomodule/redigo/redis"
+	"github.com/tjl-cmd/travel/user/internal/data"
 	"os"
 
-	"user/internal/conf"
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/config"
 	"github.com/go-kratos/kratos/v2/config/file"
@@ -12,6 +13,7 @@ import (
 	"github.com/go-kratos/kratos/v2/middleware/tracing"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
 	"github.com/go-kratos/kratos/v2/transport/http"
+	"github.com/tjl-cmd/travel/user/internal/conf"
 )
 
 // go build -ldflags "-X main.Version=x.y.z"
@@ -23,7 +25,8 @@ var (
 	// flagconf is the config flag.
 	flagconf string
 
-	id, _ = os.Hostname()
+	id, _     = os.Hostname()
+	Redispool *redis.Pool
 )
 
 func init() {
@@ -70,7 +73,7 @@ func main() {
 	if err := c.Scan(&bc); err != nil {
 		panic(err)
 	}
-
+	data.InitRedisPool(&bc)
 	app, cleanup, err := initApp(bc.Server, bc.Data, logger)
 	if err != nil {
 		panic(err)

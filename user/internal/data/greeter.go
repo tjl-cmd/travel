@@ -2,8 +2,8 @@ package data
 
 import (
 	"context"
-	"user/internal/biz"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/tjl-cmd/travel/user/internal/biz"
 )
 
 type greeterRepo struct {

@@ -1,6 +1,6 @@
 server:
   http:
-    addr: 0.0.0.0:8000
+    addr: 0.0.0.0:7799
     timeout: 1s
   grpc:
     addr: 0.0.0.0:9000
@@ -11,5 +11,6 @@ data:
     source: root:root@tcp(127.0.0.1:3306)/test
   redis:
     addr: 127.0.0.1:6379
+    password: ""
     read_timeout: 0.2s
     write_timeout: 0.2s
