@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package user.v1;
+option go_package = "api/proto/user;user";
+import "google/api/annotations.proto";
+service User {
+  rpc Login(LoginInfoMsg)returns(LoginInfo){
+    option(google.api.http) = {
+      post: "/login",
+      body: "*"
+    };
+  }
+  rpc Register(Registry)returns(Response){
+    option(google.api.http) = {
+      post: "/register",
+      body: "*"
+    };
+  }
+  rpc UpdateUser(UpdateUserInfo)returns(Response);
+  rpc Logout(LogoutInfo)returns(Empty);
+  rpc CheckToken(LogoutInfo)returns(CheckTokenResp);
+  rpc GetUserInfoById(GetUserByID)returns(UserResp);
+  rpc GetUserInfoByIds(GetUserByIDs)returns(UserRespS);
+  rpc GreeterAuthCode(Empty)returns(CodeResp){
+    option(google.api.http) = {
+        get: "/code",
+    };
+  }
+}
+message LoginInfoMsg {
+  string username = 1;
+  string password = 2;
+  string code_id = 3;
+  string code = 4;
+}
+message LoginInfo {
+  int64 id = 1;
+  string token = 2;
+  string username = 3;
+}
+message Registry {
+  string username = 1;
+  string password = 2;
+}
+message Response {
+  string msg = 1;
+}
+message UpdateUserInfo {
+  int64  id = 1;
+  string username = 2;
+  string avatar_url = 3;
+  string birthday = 4;
+}
+message LogoutInfo {
+  string token = 1;
+}
+message CheckTokenResp {
+  int64 id = 1;
+  string username = 2;
+  bool tokenCheck = 3;
+}
+message GetUserByID {
+  int64  id  = 1;
+}
+message GetUserByIDs {
+  repeated GetUserByID ids = 1;
+}
+message UserResp {
+  int64  id = 1;
+  string username = 2;
+  string avatar_url = 3;
+  string birthday = 4;
+  int32 status = 5;
+}
+message UserRespS{
+  repeated UserResp users = 1;
+}
+message CodeResp {
+  string code_id = 1;
+  string images = 2;
+}
+message Empty {
+
+}
