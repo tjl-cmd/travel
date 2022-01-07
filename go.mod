@@ -5,10 +5,11 @@ go 1.17
 require (
 	github.com/afocus/captcha v0.0.0-20191010092841-4bd1f21c8868
 	github.com/go-kratos/kratos/v2 v2.1.4
+	github.com/golang/protobuf v1.5.2
 	github.com/gomodule/redigo v1.8.8
 	github.com/google/wire v0.5.0
 	github.com/jakehl/goid v1.1.0
-	github.com/satori/go.uuid v1.2.0
+	github.com/jinzhu/gorm v1.9.16
 	google.golang.org/genproto v0.0.0-20211223182754-3ac035c7e7cb
 	google.golang.org/grpc v1.43.0
 	google.golang.org/protobuf v1.27.1
@@ -19,10 +20,10 @@ require (
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/go-playground/form/v4 v4.2.0 // indirect
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
-	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/imdario/mergo v0.3.12 // indirect
+	github.com/jinzhu/inflection v1.0.0 // indirect
 	go.opentelemetry.io/otel v1.0.0 // indirect
 	go.opentelemetry.io/otel/trace v1.0.0 // indirect
 	golang.org/x/image v0.0.0-20211028202545-6944b10bf410 // indirect

@@ -37,6 +37,14 @@ message LoginInfo {
   int64 id = 1;
   string token = 2;
   string username = 3;
+  string birthday = 4;
+  string sex = 5;
+  string phone = 6;
+  string nickname = 7;
+  string card = 8;
+  string email = 9;
+  string name = 10;
+  int32 status = 11;
 }
 message Registry {
   string username = 1;
@@ -48,8 +56,14 @@ message Response {
 message UpdateUserInfo {
   int64  id = 1;
   string username = 2;
-  string avatar_url = 3;
+  string avatar = 3;
   string birthday = 4;
+  string sex = 5;
+  string phone = 6;
+  string nickname = 7;
+  string card = 8;
+  string email = 9;
+  string name = 10;
 }
 message LogoutInfo {
   string token = 1;
@@ -66,11 +80,16 @@ message GetUserByIDs {
   repeated GetUserByID ids = 1;
 }
 message UserResp {
-  int64  id = 1;
-  string username = 2;
-  string avatar_url = 3;
+  int64 id = 1;
+  int64 status = 2;
+  string username = 3;
   string birthday = 4;
-  int32 status = 5;
+  string sex = 5;
+  string phone = 6;
+  string nickname = 7;
+  string card = 8;
+  string email = 9;
+  string name = 10;
 }
 message UserRespS{
   repeated UserResp users = 1;
